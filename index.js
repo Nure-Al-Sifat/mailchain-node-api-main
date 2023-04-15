@@ -32,6 +32,7 @@ const mailchain = Mailchain.fromSecretRecoveryPhrase(secretRecoveryPhrase);
 const getuser = async () => {
   const user = await mailchain.user();
   console.log(user.address);
+  console.log(await gptResponse("is it working?"));
 };
 
 getuser();
@@ -49,8 +50,6 @@ const gptResponse = async (message) => {
     console.log(error);
   }
 };
-
-gptResponse("is it working?");
 
 const senMail = async (req, res) => {
   const user = await mailchain.user();

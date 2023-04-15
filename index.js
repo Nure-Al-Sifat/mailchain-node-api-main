@@ -10,15 +10,32 @@ const app = express();
 app.use(express.json());
 // app.use(cors());
 
-app.use(
-  cors({
-    origin: "*",
-    credentials: true,
-    preflightContinue: true,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    origin: true,
-  })
-);
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS"
+  );
+  if (req.method == "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
+// app.use(
+//   cors({
+//     origin: "*",
+//     credentials: true,
+//     preflightContinue: true,
+//     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+//     origin: true,
+//   })
+// );
 
 //OPEN AI CONFIG
 const configuration = new Configuration({

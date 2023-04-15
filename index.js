@@ -8,17 +8,16 @@ const schedule = require("node-schedule");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
 
-// app.use(
-//   cors({
-//     origin: "*",
-//     credentials: true,
-//     preflightContinue: true,
-//     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-//     origin: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: "*",
+    // credentials: true,
+    // preflightContinue: true,
+    // methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    // origin: true,
+  })
+);
 
 //OPEN AI CONFIG
 const configuration = new Configuration({

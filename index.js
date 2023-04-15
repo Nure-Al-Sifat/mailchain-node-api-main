@@ -8,15 +8,15 @@ const schedule = require("node-schedule");
 
 const app = express();
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
-const corsOptions = {
-  origin: "http://localhost:3000",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-  methods: "GET, POST",
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+//   origin: "http://localhost:3000",
+//   credentials: true, //access-control-allow-credentials:true
+//   optionSuccessStatus: 200,
+//   methods: "GET, POST",
+// };
+// app.use(cors(corsOptions));
 
 //OPEN AI CONFIG
 const configuration = new Configuration({

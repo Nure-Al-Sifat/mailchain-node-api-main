@@ -30,18 +30,12 @@ const openai = new OpenAIApi(configuration);
 const secretRecoveryPhrase = process.env.RECOVERY_PHRASE;
 const mailchain = Mailchain.fromSecretRecoveryPhrase(secretRecoveryPhrase);
 
-const dataList = [
-  {
-    name: "sifat",
-    age: "100",
-    time: "2023-04-14T22:43",
-  },
-  {
-    name: "rifat",
-    age: "200",
-    time: "2023-04-14T22:44",
-  },
-];
+const getuser = async () => {
+  const user = await mailchain.user();
+  console.log(user.address);
+};
+
+getuser();
 
 const gptResponse = async (message) => {
   try {

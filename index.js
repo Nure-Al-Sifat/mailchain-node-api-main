@@ -10,12 +10,11 @@ const app = express();
 app.use(express.json());
 // app.use(cors());
 
-const corsOptions = {
-  origin: "https://mailchaingpt.vercel.app/",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "https://mailchaingpt.vercel.app",
+  })
+);
 
 //OPEN AI CONFIG
 const configuration = new Configuration({

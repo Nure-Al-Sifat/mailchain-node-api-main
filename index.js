@@ -11,7 +11,7 @@ app.use(express.json());
 // app.use(cors());
 
 const corsOptions = {
-  origin: "*",
+  origin: "https://mailchain-node-api-main-production.up.railway.app",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };

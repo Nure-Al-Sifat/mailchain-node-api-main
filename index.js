@@ -1,7 +1,7 @@
 const express = require("express");
+const cors = require("cors");
 require("dotenv").config();
 const Mailchain = require("@mailchain/sdk").Mailchain;
-const cors = require("cors");
 const { Configuration, OpenAIApi } = require("openai");
 const schedule = require("node-schedule");
 // import { Mailchain } from "@mailchain/sdk";

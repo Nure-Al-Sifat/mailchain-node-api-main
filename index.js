@@ -12,7 +12,11 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://mailchaingpt.vercel.app",
+    origin: "*",
+    credentials: true,
+    preflightContinue: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    origin: true,
   })
 );
 

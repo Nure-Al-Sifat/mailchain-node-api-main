@@ -50,6 +50,8 @@ const gptResponse = async (message) => {
   }
 };
 
+gptResponse("is it working?");
+
 const senMail = async (req, res) => {
   const user = await mailchain.user();
   console.log(user.address);
@@ -58,7 +60,7 @@ const senMail = async (req, res) => {
     console.log(element);
 
     const job = schedule.scheduleJob(element.getTime, async () => {
-      console.log("The world is going to end today.");
+      console.log("Wating for open ai response.");
 
       const emailMessage = await gptResponse(element.message);
 

@@ -33,7 +33,7 @@ const mailchain = Mailchain.fromSecretRecoveryPhrase(secretRecoveryPhrase);
 const getuser = async () => {
   const user = await mailchain.user();
   console.log(user.address);
-  console.log(await gptResponse("is it working?"));
+  // console.log(await gptResponse("is it working?"));
 };
 
 getuser();
@@ -57,9 +57,16 @@ const senMail = async (req, res) => {
   console.log(user.address);
 
   req.body.forEach(async (element, index) => {
-    console.log(element);
+    let executeTime = element.getTime;
+    if (executeTime == null) {
+      let utcTime = new Date();
+      console.log(utcTime);
+      utcTime.setSeconds(utcTime.getSeconds() + 10);
+      executeTime = new Date(utcTime);
+    }
+    console.log(executeTime);
 
-    const job = schedule.scheduleJob(element.getTime, async () => {
+    const job = schedule.scheduleJob(executeTime, async () => {
       console.log("Wating for open ai response.");
 
       const emailMessage = await gptResponse(element.message);
